@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>Angular js</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.css">
+	<script type="text/javascript" src="vendor/angularjs/angular.js"></script>
+	<script>
+	angular.module('myApp', []).controller('MeuController', function($scope){
+		$scope.pessoa = [{
+			nome:'Caluan Baierle', 
+			email:'caluan.baierle@gmail.com'
+		}, {
+			nome:'joaoa euclides', 
+			email:'joclides@gmail.com'
+		}];
+
+		$scope.msg = 'isto ésta visivel';
+
+
+		$scope.mostrarfn = function(){
+			$scope.mostrar = !$scope.mostrar;
+			
+		}
+	})
+		
+	</script>
+</head>
+<body ng-controller="MeuController">
+	<div class="container">
+		<div class="row"> 
+			<div class="col-xs-6">
+				
+				<label class="control-label">Nome e Sobrenome:</label>
+				<input ng-model="pessoa[0].nome" class="form-control" placeholder="Digite seu nome completo" type="text" name="">
+									
+				<label>E-mail:</label>
+				<input ng-model="pessoa[0].email" class="form-control" placeholder="E-mail Valido" type="email" name="">
+				<button class="btn btn-primary" ng-click="pessoa2 = pessoa">Mostra ai vei</button>
+				<buttom class="btn btn-danger" ng-click="mostrarfn()">Mostra / Desmostra</buttom>
+			
+
+
+			</div>
+
+		<h1>
+			Ola <span ng-bind="pessoa[0].nome"></span> seu email é: 
+			<span ng-bind="pessoa[0].email"></span>
+		</h1>
+		<pre ng-if="mostrar">{{msg}}</pre>
+
+
+
+	</div>
+
+</body>
+</html>
